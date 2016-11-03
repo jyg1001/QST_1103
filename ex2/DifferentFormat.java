@@ -18,8 +18,8 @@ public class DifferentFormat {
 	@SuppressWarnings("resource")
 	public static void main(String[] args){
 		Scanner scanner = new Scanner(System.in);
-		Locale locale = Locale.US; 
-		SimpleDateFormat inputFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", locale); //修改格式
+		Locale locale = Locale.US; //将美国当地时间赋值给locale
+		SimpleDateFormat inputFormat = new SimpleDateFormat("dd/MMM/yyyy:HH:mm:ss", locale); //修改格式
 		while (scanner.hasNext()){
 			String line = scanner.nextLine();
 			Date lineDate = null;
@@ -27,7 +27,7 @@ public class DifferentFormat {
 			try {
 				lineDate = inputFormat.parse(line);
 				lineTimestamp = lineDate.getTime();
-				System.out.println(lineTimestamp);
+				System.out.println(lineTimestamp);//输出时间戳
 			} catch (ParseException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
