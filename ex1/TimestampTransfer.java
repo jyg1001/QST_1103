@@ -16,20 +16,20 @@ import java.util.Scanner;
 public class TimestampTransfer {
 	@SuppressWarnings("resource")
 	public static void main(String[] args){
-		Scanner scanner = new Scanner(System.in);
-		SimpleDateFormat inputFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-		SimpleDateFormat outputFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+		Scanner scanner = new Scanner(System.in);//new一个scanner的输入变量
+		SimpleDateFormat inputFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//自定义时间的输入
+		SimpleDateFormat outputFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");//自定义时间的输出
 		while (scanner.hasNext()){
-			String line = scanner.nextLine();
-			Date lineDate = null;
-			long lineTimestamp;
+			String line = scanner.nextLine();//读取输入数据，将值传给line
+			Date lineDate = null;//初始化Data,并附空值
+			long lineTimestamp;//定义一个整形的时间戳
 			try {
-				lineDate = inputFormat.parse(line);
-				lineTimestamp = lineDate.getTime();
-				System.out.println(outputFormat.format(lineDate) + " to " + lineTimestamp);
+				lineDate = inputFormat.parse(line);//解析line日期字符串，并赋值给linedate
+				lineTimestamp = lineDate.getTime();//格式转换成时间戳
+				System.out.println(outputFormat.format(lineDate) + " to " + lineTimestamp);//输出形式
 			} catch (ParseException e) {
 				// TODO Auto-generated catch block
-				e.printStackTrace();
+				e.printStackTrace();//打印异常信息
 			}
 		}
 	}
